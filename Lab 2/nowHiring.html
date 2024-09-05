@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now Hiring!</title>
+    <a href="index.html">Homepage</a>
+    <a href="menu.html"> Restaruant Menu</a>
+    <link rel="icon"
+    type="image/x-icon"
+    href="Images/Favicon.png">
+</head>
+<body>
+    <h3>Please complete the contact form below:</h3>
+    <br>
+    <!-- Name: not optional, must contain at least one character but no longer than 20 -->
+<label for="First Name">First Name:</label>
+<input type="text" name="First Name" id="" minlength="1" maxlength="20" placeholder="Required" required>
+<br>
+<br>
+<!-- Last name: Is optional, at least one character, no longer than 20 -->
+ <label for="Last Name">Last Name:</label>
+ <input type="text" name="Last Name" id="" minlength="1" maxlength="20">
+ <br>
+ <br>
+ <!-- Address 1: Required -->
+  <label>Address:</label>
+  <input type="text" name="Address" id=""placeholder="Required" required>
+<br>
+<br>
+<!-- Address 2: optional,  -->
+ <label>Address 2:</label>
+ <input type="text" name="Add2" id=""placeholder="Optional">
+<br>
+<br>
+<!-- Required, and less than 30 char -->
+<label>City:</label>
+<input type="text" name="" id="" maxlength="30"placeholder="Required" required>
+<br>
+<br>
+<!-- State: with at least 3 options in a two character format -->
+ <label>State:</label>
+ <select>
+	<option value="AL">AL</option>
+	<option value="AK">AK</option>
+	<option value="AR">AR</option>
+	<option value="AZ">AZ</option>
+	<option value="CA">CA</option>
+	<option value="CO">CO</option>
+	<option value="CT">CT</option>
+	<option value="DC">DC</option>
+	<option value="DE">DE</option>
+	<option value="FL">FL</option>
+	<option value="GA">GA</option>
+	<option value="HI">HI</option>
+	<option value="IA">IA</option>
+	<option value="ID">ID</option>
+	<option value="IL">IL</option>
+	<option value="IN">IN</option>
+	<option value="KS">KS</option>
+	<option value="KY">KY</option>
+	<option value="LA">LA</option>
+	<option value="MA">MA</option>
+	<option value="MD">MD</option>
+	<option value="ME">ME</option>
+	<option value="MI">MI</option>
+	<option value="MN">MN</option>
+	<option value="MO">MO</option>
+	<option value="MS">MS</option>
+	<option value="MT">MT</option>
+	<option value="NC">NC</option>
+	<option value="NE">NE</option>
+	<option value="NH">NH</option>
+	<option value="NJ">NJ</option>
+	<option value="NM">NM</option>
+	<option value="NV">NV</option>
+	<option value="NY">NY</option>
+	<option value="ND">ND</option>
+	<option value="OH">OH</option>
+	<option value="OK">OK</option>
+	<option value="OR">OR</option>
+	<option value="PA">PA</option>
+	<option value="RI">RI</option>
+	<option value="SC">SC</option>
+	<option value="SD">SD</option>
+	<option value="TN">TN</option>
+	<option value="TX">TX</option>
+	<option value="UT">UT</option>
+	<option value="VT">VT</option>
+	<option value="VA">VA</option>
+	<option value="WA">WA</option>
+	<option value="WI">WI</option>
+	<option value="WV">WV</option>
+	<option value="WY">WY</option>
+</select>
+<br>
+<br>
+<!-- Age: required field, must be at least 21, but no older than 99 -->
+ <label>Age:</label>
+<input type="number" name="" id=""min="21" max="99" required>
+<br>
+<br>
+<!-- Phone Number: Required, and consistent format, formatting will follow a 111-222-3333, placeholder!!! -->
+ <label>Phone Number:</label>
+ <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"placeholder="111-222-3333" required />
+    <br>
+    <br>
+    <!-- Email: should be verified for all applicatnts, some type of safeguard to ensure data matches a standard US email address -->
+     <label>Email:</label>
+     <input type="email" id="email" pattern=".+@example\.com" size="30" placeholder="@example.com" required />
+     <br>
+     <br>
+     <!-- Password: 8-12 character pattern, one upper case, one lowercase -->
+      <label>Password:</label>
+      <input type="password" name="password" id="pass"
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}"
+      title="Must contain at least one number, one uppercase letter, one lowercase letter, and be between 8 to 12 characters long." 
+      required>
+      <br>
+      <br>
+      <!--Marital Status: Radio w/ the assumption all applicants are single -->
+      <label>Marital Status:</label>
+      <input type="radio" name="Marital Status" checked="checked" id="">Single
+      <input type="radio" name="Marital Status" id="">Married
+      <input type="radio" name="Marital Status" id="">It's Complicated
+      <br>
+      <!-- Favorite Color w/5checkboxes -->
+       <label>Favorite Color(s):</label>
+       <input type="checkbox" name="" id="">Red
+       <input type="checkbox" name="" id="">Green
+       <input type="checkbox" name="" id="">Blue
+       <input type="checkbox" name="" id="">Pink
+       <input type="checkbox" name="" id="">Yellow
+       <br>
+       <br>
+       <!-- Text box: 4 lines of entries and a max of 30 char -->
+        <label>Additional Info (300 char max): </label>
+        <br>
+        <textarea name="" id=""rows="4" columns=""30 maxlength="300"></textarea>
+        <br>
+        <br>
+        <!-- Button 1: Submit -->
+         <label></label>
+         <input type="button" value="Submit">
+         <label></label>
+         <input type="button" value="Reset">
+
+</body>
+</html>
