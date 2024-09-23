@@ -1,0 +1,21 @@
+{
+  "name": "yes-no-words",
+  "version": "1.0.0",
+  "description": "My best pokemon character generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pokemon",
+    "character",
+    "dog",
+    "blue"
+  ],
+  "author": "TM",
+  "license": "ISC",
+  "dependencies": {
+    "cat-me": "^1.0.3",
+    "yes-no-words": "^3.0.0"
+  }
+}

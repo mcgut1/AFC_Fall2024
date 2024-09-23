@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 5</title>
+</head>
+<body>
+    <h2>Enter Your Age</h2>
+    <form id="ageForm">
+        <input type="number" id="age" placeholder="Enter your age">
+        <button type="submit">Submit</button>
+    </form>
+    <p id="error" style="color: red;"></p>
+
+    <script>
+        document.getElementById("ageForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const age = document.getElementById("age").value;
+            document.getElementById("error").textContent = (age > 18) ? "" : "Age must be greater than 18.";
+        });
+    </script>
+</body>
+</html>

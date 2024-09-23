@@ -1,0 +1,13 @@
+.container {
+    width: 33vw;
+    height: 25vh;
+}
+
+#img-container {
+    border: black solid 3px;
+
+}
+img {
+    width: 100%;
+    
+}
