@@ -1,14 +1,33 @@
-import './App.css';
-import './images/img1.jpeg'
+// import React, { useState } from 'react';
 
-function App() {
+// const ToggleButton = () => {
+//   const [isOn, setIsOn] = useState(false);
+
+//   return (
+//     <button onClick={() => setIsOn(!isOn)}>
+//       {isOn ? 'ON' : 'OFF'}
+//     </button>
+//   );
+// };
+
+// export default ToggleButton;
+
+import React, { useState } from 'react';
+
+const InputDisplay = () => {
+  const [inputText, setInputText] = useState('');
+
   return (
-    <>
-      <h1>My Image Demo</h1>
-      <img src={img2.jpeg} alt="cat picture" />  
-  
-    </> 
+    <div>
+      <input
+        type="text"
+        value={inputText}
+        onChange={(e) => setInputText(e.target.value)}
+      />
+      <p>{inputText}</p>
+    </div>
   );
-}
+};
 
-export default App;
+export default InputDisplay;
+ 
