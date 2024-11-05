@@ -1,0 +1,20 @@
+body {
+    background-image: url("components/assets/background.webp");
+    background-repeat: repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.navbar {
+    background-color: #4CAF50; /* Adjust green shade as desired */
+    color: white;
+}
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+.submit-button:hover {
+    background-color: #388E3C;
+}
