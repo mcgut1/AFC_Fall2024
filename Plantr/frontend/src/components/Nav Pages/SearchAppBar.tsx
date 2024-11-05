@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -8,6 +9,10 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
@@ -53,6 +58,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
     const navigate = useNavigate();
+    const [drawerOpen, setDrawerOpen] = useState(false);
+
+    // Function to toggle drawer state
+    const toggleDrawer = (open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+        setDrawerOpen(open);
+    };
+
+    // Define the navigation links for the drawer
+    const navLinks = [
+        { text: 'Home', path: '/' },
+        { text: 'About Us', path: '/about' },
+        { text: 'Toxicity', path: '/toxicity' },
+    ];
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -63,6 +84,7 @@ export default function SearchAppBar() {
                         edge="start"
                         color="inherit"
                         aria-label="open drawer"
+                        onClick={toggleDrawer(true)}
                         sx={{ mr: 2 }}
                     >
                         <MenuIcon />
@@ -76,25 +98,16 @@ export default function SearchAppBar() {
                         PLANTR
                     </Typography>
 
-                    {/* Green buttons to match navbar */}
-                    <Button
-                        sx={{ color: 'white', bgcolor: '#388E3C', '&:hover': { bgcolor: '#2e7d32' } }}
-                        onClick={() => navigate('/')}
-                    >
-                        Home
-                    </Button>
-                    <Button
-                        sx={{ color: 'white', bgcolor: '#388E3C', '&:hover': { bgcolor: '#2e7d32' } }}
-                        onClick={() => navigate('/about')}
-                    >
-                        About Us
-                    </Button>
-                    <Button
-                        sx={{ color: 'white', bgcolor: '#388E3C', '&:hover': { bgcolor: '#2e7d32' } }}
-                        onClick={() => navigate('/toxicity')}
-                    >
-                        Toxicity
-                    </Button>
+                    {/* Desktop Nav Links */}
+                    {navLinks.map((link) => (
+                        <Button
+                            key={link.text}
+                            sx={{ color: 'white', bgcolor: '#388E3C', '&:hover': { bgcolor: '#2e7d32' } }}
+                            onClick={() => navigate(link.path)}
+                        >
+                            {link.text}
+                        </Button>
+                    ))}
 
                     <Search>
                         <SearchIconWrapper>
@@ -107,6 +120,17 @@ export default function SearchAppBar() {
                     </Search>
                 </Toolbar>
             </AppBar>
+
+            {/* Drawer component */}
+            <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
+                <List onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
+                    {navLinks.map((link) => (
+                        <ListItem button key={link.text} onClick={() => navigate(link.path)}>
+                            <ListItemText primary={link.text} />
+                        </ListItem>
+                    ))}
+                </List>
+            </Drawer>
         </Box>
     );
 }
