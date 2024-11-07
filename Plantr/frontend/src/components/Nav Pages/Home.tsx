@@ -1,10 +1,7 @@
 import React from 'react';
-import { Box, Typography, Container, Button } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Box, Typography, Container } from '@mui/material';
 
 const Home: React.FC = () => {
-    const navigate = useNavigate();
-
     return (
         <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
             <Box textAlign="center" mb={4}>
@@ -16,8 +13,6 @@ const Home: React.FC = () => {
                     Start by adding your current plants, and edit/update/delete information as your garden changes!
                 </Typography>
             </Box>
-
-
         </Container>
     );
 };

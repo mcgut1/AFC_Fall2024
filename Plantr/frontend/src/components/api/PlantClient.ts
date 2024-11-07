@@ -1,5 +1,5 @@
 import axios from "axios";
-import {PlantData} from "../components/PlantData"; // Ensure this path is correct
+import {PlantData} from "../PlantData.tsx"; // Ensure this path is correct
 
 const API_BASE_URL = 'http://localhost:8080/api/plants';
 
