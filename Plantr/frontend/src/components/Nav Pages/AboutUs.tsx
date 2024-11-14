@@ -1,9 +1,8 @@
-import React from 'react';
-import { Box, Typography, Container } from '@mui/material';
+import {Box, Container, Typography} from '@mui/material';
 
-const AboutUs: React.FC = () => {
+const AboutUs = () => {
     return (
-        <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
+        <Container maxWidth="md" sx={{mt: 4, mb: 4}}>
             <Box textAlign="center" mb={4}>
                 <Typography variant="h4" component="h1" gutterBottom>
                     About Us

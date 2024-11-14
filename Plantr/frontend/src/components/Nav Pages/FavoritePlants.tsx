@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import PlantCard from '../PlantCard'; // Adjust the path if needed
+import PlantCard from '../PlantCard';
 import PlantManager from '../PlantManager';
 import { PlantData } from '../PlantData';
+import {useState} from "react";
 
 interface FavoritePlantsProps {
     plants: PlantData[];
     onRemoveFromFavorites: (id: number) => void;
     onEdit: (plant: PlantData) => void;
     onUpdate: (id: number, updatedPlant: PlantData) => void;
+    onUpdateNotes?: (plant: PlantData) => void;
 }
 
-const FavoritePlants: React.FC<FavoritePlantsProps> = ({ plants, onRemoveFromFavorites, onEdit, onUpdate }) => {
+const FavoritePlants = ({ plants, onRemoveFromFavorites, onUpdate, onUpdateNotes }: FavoritePlantsProps) => {
     const [editPlant, setEditPlant] = useState<PlantData | null>(null); // Track plant to edit
 
     // Handle click to edit plant and open the form
@@ -20,7 +21,9 @@ const FavoritePlants: React.FC<FavoritePlantsProps> = ({ plants, onRemoveFromFav
 
     // Close the form after saving or canceling
     const handleSavePlant = (updatedPlant: PlantData) => {
-        onUpdate(updatedPlant.id, updatedPlant);
+        if (updatedPlant.id !== undefined) {
+            onUpdate(updatedPlant.id, updatedPlant);
+        }
         setEditPlant(null); // Close edit form
     };
 
@@ -33,7 +36,7 @@ const FavoritePlants: React.FC<FavoritePlantsProps> = ({ plants, onRemoveFromFav
                 <PlantManager
                     initialData={editPlant}
                     onSave={handleSavePlant}
-                    onUpdate={handleSavePlant} // Reuse the same handler for updating
+                    onUpdate={handleSavePlant} // Reuse the same function for updating
                 />
             ) : (
                 // Display plant cards when not editing
@@ -42,6 +45,7 @@ const FavoritePlants: React.FC<FavoritePlantsProps> = ({ plants, onRemoveFromFav
                     onDelete={onRemoveFromFavorites}
                     onEdit={handleEditClick}
                     onAddToFavorites={() => {}} // Leave empty if no "add to favorites" needed here
+                    onUpdateNotes={onUpdateNotes} // Placeholder for the required prop
                 />
             )}
         </div>

@@ -1,6 +1,5 @@
-
 export interface PlantData {
-    id?:number; // this one is optional when created, but it is REQUIRED for updating
+    id?: number; // this one is optional when created, but it is REQUIRED for updating
     common_name: string;
     image: string;
     sowing: string;

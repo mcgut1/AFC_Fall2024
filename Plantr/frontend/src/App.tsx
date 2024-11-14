@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {useEffect, useState} from 'react';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Navbar from './components/Nav Pages/Navbar.tsx';
 import AboutUs from './components/Nav Pages/AboutUs.tsx';
 import Toxicity from './components/Nav Pages/Toxicity.tsx';
-import { PlantData } from "./components/PlantData";
-import { savePlant, fetchPlants, updatePlant, deletePlant } from "./components/api/PlantClient.ts";
+import {PlantData} from "./components/PlantData";
+import {deletePlant, fetchPlants, savePlant, updatePlant} from "./components/api/PlantClient.ts";
 import PlantManager from "./components/PlantManager.tsx";
 import PlantCard from "./components/PlantCard.tsx";
 import './App.css';
-import { Box, Button } from "@mui/material";
+import {Box, Button} from "@mui/material";
 import FavoritePlants from "./components/Nav Pages/FavoritePlants.tsx";
 
 function App() {
@@ -74,23 +74,29 @@ function App() {
         setFavoritePlants(favoritePlants.filter(plant => plant.id !== id));
     };
 
+
+    const handleUpdateNotes = (id: number, notes: string) => {
+        setPlants(plants.map((plant) => (plant.id === id ? {...plant, notes} : plant)));
+    };
+
+
     return (
         <Router>
             <Navbar/>
             <Routes>
                 <Route path="/" element={
                     <>
-                        <Box sx={{ textAlign: 'center', mt: 2 }}>
+                        <Box sx={{textAlign: 'center', mt: 2}}>
                             <h1>Plant Manager</h1>
                         </Box>
                         <Button
                             variant="contained"
                             color="primary"
                             onClick={() => {
-                                setEditPlant(null); // Reset any editing state
+                                setEditPlant(null); // Reset editing state
                                 setShowPlantManager(!showPlantManager); // Toggle form visibility
                             }}
-                            sx={{ mb: 2 }}
+                            sx={{mb: 2}}
                         >
                             {showPlantManager ? 'Close Form' : 'Add Plant'}
                         </Button>
@@ -108,6 +114,7 @@ function App() {
                             onEdit={handleEditClick}
                             onDelete={handleDeletePlant}
                             onAddToFavorites={handleAddToFavorites}
+                            onUpdateNotes={handleUpdateNotes} // Pass the notes handler
                         />
                     </>
                 }/>
